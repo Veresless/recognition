@@ -1,12 +1,5 @@
 package com.example.recognition.model;
 
-import com.example.recognition.types.Data;
-import com.example.recognition.types.Request;
-import com.example.recognition.types.Options;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 /*
 public class Recognition {
     private IModelAdapter mModel;

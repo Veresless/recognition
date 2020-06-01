@@ -2,14 +2,14 @@ package com.example.recognition.types;
 
 import androidx.room.Embedded;
 
-public class Request {
+public class Response {
     protected String imageUri;
     protected Data[] data;
     protected String model;
-    public Request() {
+    public Response() {
 
     }
-    public Request(String imageUri, Data[] data, String model) {
+    public Response(String imageUri, Data[] data, String model) {
         this.imageUri = imageUri;
         this.data = data;
         this.model = model;
