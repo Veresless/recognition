@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.recognition.model.Repository;
-import com.example.recognition.mvvm.DataViewModel;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
     protected Repository repository;
@@ -17,11 +16,11 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if(modelClass.getName() == "RequestViewModel"){
             return (T)(new RequestViewModel(repository));
-        } else if(modelClass.getName() == "ResultViewModel"){
+        } else if(modelClass.getName().equals("ResultViewModel")){
             return (T)(new RequestViewModel(repository));
-        } else if(modelClass.getName() == "FavoriteViewModel"){
+        } else if(modelClass.getName().equals("FavoriteViewModel")){
             return (T)(new RequestViewModel(repository));
-        } else if(modelClass.getName() == "OptionsViewModel"){
+        } else if(modelClass.getName().equals("OptionsViewModel")){
             return (T)(new RequestViewModel(repository));
         }
         return null;
