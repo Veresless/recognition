@@ -1,4 +1,4 @@
-package com.example.recognition.activitys;
+package com.example.recognition.view.activitys;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import com.example.recognition.R;
-import com.example.recognition.fragments.MainFragment;
+import com.example.recognition.view.fragments.MainFragment;
 
 public class SingleFragmentActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;

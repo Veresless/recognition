@@ -1,16 +1,15 @@
-package com.example.recognition.activitys;
+package com.example.recognition.view.activitys;
 
 import android.os.Bundle;
 import com.example.recognition.R;
 import com.example.recognition.adapters.ModelAdapter;
 import com.example.recognition.adapters.SaverAdapter;
 import com.example.recognition.adapters.ViewAdapter;
-import com.example.recognition.components.DataController;
-import com.example.recognition.components.Parser;
-import com.example.recognition.components.Recognition;
-import com.example.recognition.components.ClarifaiRequestManager;
+import com.example.recognition.model.Parser;
+import com.example.recognition.model.Recognition;
+import com.example.recognition.model.ClarifaiRequestManager;
 import com.example.recognition.adapters.ParserAdapter;
-import com.example.recognition.components.SharedPreferencesHelper;
+import com.example.recognition.model.SharedPreferencesHelper;
 
 public class MainActivity extends SingleFragmentActivity {
 

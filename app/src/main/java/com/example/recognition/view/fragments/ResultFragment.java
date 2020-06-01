@@ -1,4 +1,4 @@
-package com.example.recognition.fragments;
+package com.example.recognition.view.fragments;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.recognition.R;
-import com.example.recognition.types.Action;
-import com.example.recognition.types.Data;
+import com.example.recognition.model.types.Data;
 
 import java.util.List;
 

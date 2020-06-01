@@ -5,89 +5,86 @@ import java.util.List;
 
 public class Data {
     public static class Frame {
-        private double mTop;
-        private double mLeft;
-        private double mBottom;
-        private double mRight;
+        protected double top;
+        protected double left;
+        protected double bottom;
+        protected double right;
         public Frame() {
 
         }
         public Frame(double top, double left, double bottom, double right) {
-            mTop = top;
-            mLeft = left;
-            mBottom = bottom;
-            mRight = right;
+            this.top = top;
+            this.left = left;
+            this.bottom = bottom;
+            this.right = right;
         }
         public double getTop() {
-            return mTop;
+            return top;
         }
         public void setTop(double top) {
-            mTop = top;
+            this.top = top;
         }
         public double getLeft() {
-            return mLeft;
+            return left;
         }
         public void setLeft(double left) {
-            mLeft = left;
+            this.left = left;
         }
         public double getBottom() {
-            return mBottom;
+            return bottom;
         }
         public void setBottom(double bottom) {
-            mBottom = bottom;
+            this.bottom = bottom;
         }
         public double getRight() {
-            return mRight;
+            return right;
         }
         public void setRight(double right) {
-            mRight = right;
+            this.right = right;
         }
     }
-    private Frame mFrame;
-    public Frame getCrop() {
-        return mFrame;
+    protected Frame frame;
+    public Frame getFrame() {
+        return frame;
     }
-    public void setCrop(Frame frame) {
-        mFrame = frame;
+    public void setFrame(Frame frame) {
+        this.frame = frame;
     }
     public static class Field {
-        private String mName;
-        private double mValue;
+        protected String name;
+        protected double value;
         public Field(String name, double value) {
-            mName = name;
-            mValue = value;
+            this.name = name;
+            this.value = value;
         }
         public String getName() {
-            return  mName;
+            return name;
         }
         public double getValue() {
-            return mValue;
+            return value;
         }
     }
-    private List<Field> mFields;
-    public void addConcept(Field field) {
-        mFields.add(field);
+    protected Field[] fields;
+    public Field[] getFields() {
+        return fields;
     }
-    public void removeConcept(Field field) {
-        mFields.remove(field);
-    }
-    public List<Field> getConcepts() {
-        return mFields;
+    public void setFields(Field[] fields) {
+        this.fields = fields;
     }
     public Data() {
-        mFields = new ArrayList<>();
-        mFrame = null;
+        fields = null;
+        frame = null;
     }
     public Data(Frame frame) {
-        mFields = new ArrayList<>();
-        mFrame = frame;
+        fields = null;
+        this.frame = frame;
     }
-    public Data(List<Field> fields) {
-        mFields = fields;
-        mFrame = null;
+    public Data(Field[] fields) {
+        this.fields = fields;
+        frame = null;
     }
-    public Data(List<Field> fields, Frame frame) {
-        mFields = fields;
-        mFrame = frame;
+    public Data(Field[] fields, Frame frame) {
+        this.fields = fields;
+        this.frame = frame;
     }
 }

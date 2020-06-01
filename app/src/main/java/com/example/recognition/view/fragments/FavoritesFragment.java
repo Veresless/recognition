@@ -1,4 +1,4 @@
-package com.example.recognition.fragments;
+package com.example.recognition.view.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

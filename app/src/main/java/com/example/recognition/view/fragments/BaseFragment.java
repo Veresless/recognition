@@ -1,4 +1,4 @@
-package com.example.recognition.fragments;
+package com.example.recognition.view.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import com.example.recognition.components.DataController;
+
 import com.example.recognition.interfaces.IViewAdapter;
-import com.example.recognition.types.Action;
 
 public class BaseFragment extends Fragment {
     protected View mView;

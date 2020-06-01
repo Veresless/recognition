@@ -1,16 +1,13 @@
-package com.example.recognition.components;
+package com.example.recognition.model;
 
-import com.example.recognition.interfaces.ISaverAdapter;
-import com.example.recognition.types.Action;
-import com.example.recognition.types.Favorite;
-import com.example.recognition.types.Options;
 import com.example.recognition.types.Data;
-import com.example.recognition.interfaces.IModelAdapter;
-import com.example.recognition.interfaces.IViewAdapter;
+import com.example.recognition.types.Request;
+import com.example.recognition.types.Options;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/*
 public class Recognition {
     private IModelAdapter mModel;
     private IViewAdapter mView;
@@ -20,7 +17,7 @@ public class Recognition {
     private String mLastImageUri;
     private int mLastModelCode;
     private String[] mModelArray;
-    private List<Favorite> mFavorites;
+    private List<Request> mRequests;
     private Options mOptions;
 
     private boolean mIsRequestDone;
@@ -39,7 +36,7 @@ public class Recognition {
                 getRequest(args);
             }
         });
-        mFavorites = Arrays.asList(mSaver.getFavorites());
+        mRequests = Arrays.asList(mSaver.getFavorites());
         mOptions = mSaver.getOptions();
         mIsRequestDone = true;
     }
@@ -80,31 +77,31 @@ public class Recognition {
     }
     public void addToFavorites() {
         boolean isExist = false;
-        final int length = mFavorites.size();
-        for (Favorite favorite: mFavorites) {
-            if (favorite.getImage() == mLastImageUri
-                    && favorite.getRequestData() == mLastData
-                    && favorite.getModel() == mModelArray[mLastModelCode]) {
+        final int length = mRequests.size();
+        for (Request request : mRequests) {
+            if (request.getImage() == mLastImageUri
+                    && request.getRequestData() == mLastData
+                    && request.getModel() == mModelArray[mLastModelCode]) {
                 isExist = true;
                 break;
             }
         }
         if (!isExist) {
-            mFavorites.add(new Favorite(mLastImageUri, mLastData, mModelArray[mLastModelCode]));
+            mRequests.add(new Request(mLastImageUri, mLastData, mModelArray[mLastModelCode]));
         }
     }
     public void removeFromFavorites(int index) {
-        mFavorites.remove(index);
+        mRequests.remove(index);
     }
     public List<String> getFavoritesImages() {
         List<String> imagesUri = new ArrayList<>();
-        for (Favorite favorite: mFavorites) {
-            imagesUri.add(favorite.getImage());
+        for (Request request : mRequests) {
+            imagesUri.add(request.getImage());
         }
         return  imagesUri;
     }
-    public Favorite getFavoriteData(int index) {
-        return mFavorites.get(index);
+    public Request getFavoriteData(int index) {
+        return mRequests.get(index);
     }
     public Options getOptions() {
         return mOptions;
@@ -113,7 +110,8 @@ public class Recognition {
         mOptions = options;
     }
     public void Save() {
-        mSaver.setFavorites((Favorite[]) mFavorites.toArray());
+        mSaver.setFavorites((Request[]) mRequests.toArray());
         mSaver.setOptions(mOptions);
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.example.recognition.fragments;
+package com.example.recognition.view.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
 import com.example.recognition.R;
 import com.example.recognition.adapters.ViewAdapter;
-import com.example.recognition.components.DataController;
 import com.example.recognition.interfaces.IViewAdapter;
-import com.example.recognition.types.Action;
 
 import static android.app.Activity.RESULT_OK;
 

@@ -1,17 +1,17 @@
 package com.example.recognition.types;
 
 public class Options {
-    private int mThresholdValue;
-    Options(int thresholdValue) {
-        mThresholdValue = thresholdValue;
+    protected int threshold;
+    Options(int threshold) {
+        this.threshold = threshold;
     }
     Options() {
-        mThresholdValue = 0;
+        threshold = 0;
     }
-    int getThresholdValue() {
-        return mThresholdValue;
+    int getThreshold() {
+        return threshold;
     }
-    void setThresholdValue(int thresholdValue) {
-        mThresholdValue = thresholdValue;
+    void setThreshold(int threshold) {
+        this.threshold = threshold;
     }
 }
