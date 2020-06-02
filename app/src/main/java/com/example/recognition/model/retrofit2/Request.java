@@ -1,7 +1,5 @@
 package com.example.recognition.model.retrofit2;
 
-import android.provider.ContactsContract;
-
 import java.util.List;
 
 public class Request {

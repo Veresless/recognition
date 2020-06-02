@@ -1,29 +1,19 @@
 package com.example.recognition.types;
 
-import androidx.room.Embedded;
-
-public class Response {
+public class GeneralResponse {
     protected String imageUri;
-    protected Data[] data;
+    protected GeneralData[] data;
     protected String model;
-    public Response() {
-
-    }
-    public Response(String imageUri, Data[] data, String model) {
-        this.imageUri = imageUri;
-        this.data = data;
-        this.model = model;
-    }
     public String getImage() {
         return imageUri;
     }
     public void setImage(String image) {
         imageUri = image;
     }
-    public Data[] getRequestData() {
+    public GeneralData[] getData() {
         return data;
     }
-    public void setRequestData(Data[] data) {
+    public void setData(GeneralData[] data) {
         this.data = data;
     }
     public String getModel() {

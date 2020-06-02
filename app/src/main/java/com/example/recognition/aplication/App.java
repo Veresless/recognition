@@ -4,7 +4,8 @@ import android.app.Application;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.recognition.model.LocalDataSorce;
+import com.example.recognition.R;
+import com.example.recognition.model.LocalDataSource;
 import com.example.recognition.model.RemoteDataSource;
 import com.example.recognition.model.Repository;
 import com.example.recognition.viewmodel.ViewModelFactory;
@@ -15,7 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        repository = new Repository(new LocalDataSorce(), new RemoteDataSource(this));
+        repository = new Repository(new LocalDataSource(this), new RemoteDataSource(this, getString(R.string.API_KEY)));
         factory = new ViewModelFactory(repository);
     }
     ViewModelProvider.Factory getViewModeFactory(){

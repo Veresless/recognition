@@ -2,7 +2,7 @@ package com.example.recognition.model.retrofit2;
 
 import java.util.List;
 
-public class Response
+public class GeneralResponse
 {
     public static class Status {
         private int code;
@@ -67,12 +67,12 @@ public class Response
             private String id;
             public static class Data {
                 public static class Image {
-                    private String url;
-                    public void setUrl(String url){
-                        this.url = url;
+                    private String base64;
+                    public void setBase64(String base64){
+                        this.base64 = base64;
                     }
-                    public String getUrl(){
-                        return this.url;
+                    public String getBase64(){
+                        return this.base64;
                     }
                 }
                 private Image image;
