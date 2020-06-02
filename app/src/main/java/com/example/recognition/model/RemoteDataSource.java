@@ -5,9 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;;
-import androidx.annotation.NonNull;
-
-import com.example.recognition.model.clarify.BaseResponse;
 import com.example.recognition.model.clarify.ClarifyService;
 import com.example.recognition.model.clarify.Request;
 import com.example.recognition.model.clarify.GeneralResponse;
@@ -18,7 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -27,15 +23,8 @@ public class RemoteDataSource {
     public enum Model {
         GENERAL,
         DEMOGRAPHICS,
-        COLOR;
-
-        @NonNull
-        @Override
-        public String toString() {
-            return this.name().substring(0, 1) + this.name().substring(1).toLowerCase();
-        }
+        COLOR
     }
-
     private final String prefix = "$(base64 ";
     private final String postfix = ")";
     private String apiKey;
@@ -50,7 +39,24 @@ public class RemoteDataSource {
                 .build();
         service = retrofit.create(ClarifyService.class);
     }
-    public <T extends BaseResponse> Response<T> fetchData(String uri, String model) throws IOException {
+    public retrofit2.Response<GeneralResponse> fetchGeneralData(String uri) throws IOException {
+        String path = getRealPathFromURI(context, Uri.parse(uri));
+        Call<GeneralResponse> response = service.sendRequest(apiKey, getModelName(Model.GENERAL), new Request(
+                new ArrayList<Request.Inputs>(
+                        Arrays.asList(
+                                new Request.Inputs(
+                                        new Request.Inputs.Data(
+                                                new Request.Inputs.Data.Image(
+                                                        prefix  + path + postfix
+                                                )
+                                        )
+                                )
+                        )
+                )
+        ));
+        return  response.execute();
+    }
+    public retrofit2.Response<GeneralResponse> fetchDemographicData(String uri) throws IOException {
         String path = getRealPathFromURI(context, Uri.parse(uri));
         Request request = new Request(
                 new ArrayList<Request.Inputs>(
@@ -65,21 +71,19 @@ public class RemoteDataSource {
                         )
                 )
         );
-        switch (model) {
-            case "General":
-                Call<GeneralResponse> responseCall = service.sendRequest(apiKey, Model.GENERAL.toString(), request);
-                return (Response<T>) responseCall.execute();
-            default:
-                return null;
-        }
+        Call<GeneralResponse> response = service.sendRequest(apiKey, getModelName(Model.DEMOGRAPHICS), request);
+        return  response.execute();
     }
     public List<String> getModels() {
         List<String> listModels = new ArrayList<>();
         Model[] models = Model.values();
         for (Model model : models) {
-            listModels.add(model.toString());
+            listModels.add(model.name().substring(0, 1) + model.name().toLowerCase().substring(1));
         }
         return listModels;
+    }
+    private String getModelName(Model model) {
+        return model.name().substring(0, 1) + model.name().toLowerCase().substring(1);
     }
     private String getRealPathFromURI(Context context, Uri uri) {
         String filePath = "";
