@@ -5,7 +5,7 @@ public class Options {
     Options(int threshold) {
         this.threshold = threshold;
     }
-    Options() {
+    public Options() {
         threshold = 0;
     }
     int getThreshold() {

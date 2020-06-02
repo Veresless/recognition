@@ -1,4 +1,4 @@
-package com.example.recognition.model.clarify;
+package com.example.recognition.model.remoutdata;
 
 import java.util.List;
 

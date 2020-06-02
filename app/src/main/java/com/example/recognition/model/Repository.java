@@ -14,11 +14,9 @@ public class Repository {
     private MutableLiveData<Boolean> loadStatus = new MutableLiveData<>();
     private LocalDataSource localDataSource;
     private RemoteDataSource remoteDataSource;
-    private boolean isLastFavorite;
     public Repository(LocalDataSource localDataSource, RemoteDataSource remoteDataSource) {
         this.localDataSource = localDataSource;
         this.remoteDataSource = remoteDataSource;
-        isLastFavorite = false;
     }
     public LiveData<List<String>> getModelList() {
         localDataSource.setModels(remoteDataSource.getModels());
@@ -28,10 +26,7 @@ public class Repository {
         executorIO.execute(new Runnable() {
             @Override
             public void run() {
-                if (!isLastFavorite) {
-                    localDataSource.removeLastFromFavorites();
-                    isLastFavorite = !isLastFavorite;
-                }
+                localDataSource.removeLastFromFavorites();
                 try {
                     localDataSource.addResponse(
                             ResponseConverter.getResponse(
@@ -49,6 +44,14 @@ public class Repository {
     }
     public LiveData<List<Response>> getFavorites() {
         return localDataSource.getFavorites();
+    }
+    public void makeLastResponseFavorite() {
+        executorIO.execute(new Runnable() {
+            @Override
+            public void run() {
+                localDataSource.addLastToFavorite();
+            }
+        });
     }
 
     public LiveData<Boolean> getLoadStatus() {

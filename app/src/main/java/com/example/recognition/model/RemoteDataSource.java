@@ -2,16 +2,14 @@ package com.example.recognition.model;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.icu.text.Normalizer2;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;;
 import androidx.annotation.NonNull;
 
-import com.example.recognition.model.clarify.BaseResponse;
-import com.example.recognition.model.clarify.ClarifyService;
-import com.example.recognition.model.clarify.Request;
-import com.example.recognition.model.clarify.GeneralResponse;
+import com.example.recognition.model.remoutdata.BaseResponse;
+import com.example.recognition.model.remoutdata.ClarifyService;
+import com.example.recognition.model.remoutdata.Request;
 
 import java.io.IOException;
 import java.util.ArrayList;

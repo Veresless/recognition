@@ -1,6 +1,6 @@
 package com.example.recognition.model;
 
-import com.example.recognition.model.clarify.BaseResponse;
+import com.example.recognition.model.remoutdata.BaseResponse;
 import com.example.recognition.types.Response;
 
 public class ResponseConverter {
