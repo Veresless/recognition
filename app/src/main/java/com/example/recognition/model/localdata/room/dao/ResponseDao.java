@@ -9,6 +9,7 @@ import androidx.room.TypeConverters;
 import androidx.room.Update;
 
 import com.example.recognition.model.localdata.room.ResponseConverter;
+import com.example.recognition.types.BaseData;
 import com.example.recognition.types.Response;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import retrofit2.http.DELETE;
 public interface ResponseDao {
     @Query("SELECT * FROM response WHERE 1 = is_favorite")
     LiveData<List<Response>> getFavorites();
-    @Query("SELECT * FROM response WHERE 0 = is_favorite")
+    @Query("SELECT data FROM response WHERE 0 = is_favorite")
     LiveData<Response> getLastResponse();
     @Query("SELECT * FROM response WHERE image_uri = :image AND model = :model")
     LiveData<Response> getFavorite(String image, String model);

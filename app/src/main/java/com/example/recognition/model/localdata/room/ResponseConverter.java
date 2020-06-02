@@ -3,6 +3,7 @@ package com.example.recognition.model.localdata.room;
 import androidx.room.TypeConverter;
 
 import com.example.recognition.types.BaseData;
+import com.example.recognition.types.DemographicsData;
 import com.example.recognition.types.GeneralData;
 import com.example.recognition.types.Response;
 import com.google.gson.Gson;
@@ -21,6 +22,7 @@ public class ResponseConverter {
         entityResponse.setFavorite(false);
         return entityResponse;
     }
+    @TypeConverter
     public Response fromResponse (com.example.recognition.model.localdata.room.entity.Response response) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
@@ -30,8 +32,14 @@ public class ResponseConverter {
             case "General" :
                 data = gson.fromJson(response.getData(), GeneralData[].class);
                 break;
+            case "Demographics":
+                data = gson.fromJson(response.getData(), DemographicsData[].class);
+                break;
+//            case "Color":
+//                data = gson.fromJson(response.getData(), ColorData[].class);
+//                break;
             default:
-                data = null;
+                data = gson.fromJson(response.getData(), BaseData[].class);
                 break;
         }
         generalResponse.setImage(response.getImageUri());
