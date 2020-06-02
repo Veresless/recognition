@@ -15,7 +15,7 @@ public class GeneralData extends BaseData {
             return value;
         }
     }
-    private Field[] fields;
+    protected Field[] fields;
     public Field[] getFields() {
         return fields;
     }

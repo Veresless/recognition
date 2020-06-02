@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 import com.example.recognition.R;
 
-public class MainFragment extends BaseFragment {
+public class MainFragment extends Fragment {
     public static final String MODEL_INDEX = "MODEL_INDEX";
     public static final String MODEL_NAME = "MODEL_NAME";
 
@@ -18,8 +18,7 @@ public class MainFragment extends BaseFragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        mView = inflater.inflate(R.layout.fragment_main, container, false);
-        init();
+        view = inflater.inflate(R.layout.fragment_main, container, false);
         Button button;
         final String[] models = mAdapter.getModels();
         LinearLayout layout = mView.findViewById(R.id.main_fragment_layout);
@@ -49,6 +48,6 @@ public class MainFragment extends BaseFragment {
             });
             layout.addView(button);
         }
-        return mView;
+        return view;
     }
 }

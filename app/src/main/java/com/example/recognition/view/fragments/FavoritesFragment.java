@@ -6,13 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.example.recognition.R;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-public class FavoritesFragment extends BaseFragment {
+import com.example.recognition.R;
+import com.example.recognition.aplication.App;
+import com.example.recognition.viewmodel.RequestViewModel;
+
+public class FavoritesFragment extends Fragment {
+    private View view;
+    private RequestViewModel viewModel;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_favorites, container, false);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        view = inflater.inflate(R.layout.fragment_favorites, container, false);
+        return view;
     }
 }

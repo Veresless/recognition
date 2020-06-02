@@ -2,6 +2,7 @@ package com.example.recognition.model;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.icu.text.Normalizer2;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;;
@@ -65,13 +66,8 @@ public class RemoteDataSource {
                         )
                 )
         );
-        switch (model) {
-            case "General":
-                Call<GeneralResponse> responseCall = service.sendRequest(apiKey, Model.GENERAL.toString(), request);
-                return (Response<T>) responseCall.execute();
-            default:
-                return null;
-        }
+        Call<T> responseCall = service.sendRequest(apiKey, model, request);
+        return responseCall.execute();
     }
     public List<String> getModels() {
         List<String> listModels = new ArrayList<>();
