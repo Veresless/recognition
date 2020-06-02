@@ -1,8 +1,8 @@
 package com.example.recognition.types;
 
-public class GeneralResponse {
+public class Response {
     protected String imageUri;
-    protected GeneralData[] data;
+    protected BaseData[] data;
     protected String model;
     public String getImage() {
         return imageUri;
@@ -10,10 +10,10 @@ public class GeneralResponse {
     public void setImage(String image) {
         imageUri = image;
     }
-    public GeneralData[] getData() {
+    public BaseData[] getData() {
         return data;
     }
-    public void setData(GeneralData[] data) {
+    public void setData(BaseData[] data) {
         this.data = data;
     }
     public String getModel() {

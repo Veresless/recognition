@@ -5,9 +5,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;;
-import com.example.recognition.model.retrofit2.APIService;
-import com.example.recognition.model.retrofit2.Request;
-import com.example.recognition.model.retrofit2.GeneralResponse;
+import com.example.recognition.model.clarify.ClarifyService;
+import com.example.recognition.model.clarify.Request;
+import com.example.recognition.model.clarify.GeneralResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,16 +28,16 @@ public class RemoteDataSource {
     private final String prefix = "$(base64 ";
     private final String postfix = ")";
     private String apiKey;
-    private APIService service;
+    private ClarifyService service;
     private Context context;
     public RemoteDataSource(Context context, String apiKey) {
         this.context = context;
         this.apiKey = apiKey;
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIService.BASE_URL)
+                .baseUrl(ClarifyService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        service = retrofit.create(APIService.class);
+        service = retrofit.create(ClarifyService.class);
     }
     public retrofit2.Response<GeneralResponse> fetchGeneralData(String uri) throws IOException {
         String path = getRealPathFromURI(context, Uri.parse(uri));

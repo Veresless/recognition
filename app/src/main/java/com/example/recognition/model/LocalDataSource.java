@@ -1,14 +1,11 @@
 package com.example.recognition.model;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.room.Room;
 
-import com.example.recognition.model.room.DataBase;
-import com.example.recognition.types.Options;
+import com.example.recognition.model.localdata.room.DataBase;
 
 import java.util.List;
 

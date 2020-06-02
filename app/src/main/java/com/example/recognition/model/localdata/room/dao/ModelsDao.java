@@ -1,4 +1,4 @@
-package com.example.recognition.model.room.dao;
+package com.example.recognition.model.localdata.room.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,9 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
-import com.example.recognition.model.room.entity.Model;
+import com.example.recognition.model.localdata.room.entity.Model;
 
 import java.util.List;
 

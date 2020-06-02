@@ -1,4 +1,4 @@
-package com.example.recognition.model.retrofit2;
+package com.example.recognition.model.clarify;
 
 import java.util.List;
 

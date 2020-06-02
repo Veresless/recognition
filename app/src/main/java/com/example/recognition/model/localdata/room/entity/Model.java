@@ -1,4 +1,4 @@
-package com.example.recognition.model.room.entity;
+package com.example.recognition.model.localdata.room.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

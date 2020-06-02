@@ -3,7 +3,7 @@ package com.example.recognition.model;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.recognition.model.retrofit2.GeneralResponse;
+import com.example.recognition.model.clarify.GeneralResponse;
 import com.example.recognition.types.GeneralData;
 
 import java.io.IOException;
@@ -28,18 +28,7 @@ public class Repository {
             @Override
             public void run() {
                 try {
-                    switch (model) {
-                        case "General":
                             retrofit2.Response<GeneralResponse> response = remoteDataSource.fetchGeneralData(uri);
-                            break;
-                        case "Demographics":
-
-                            break;
-                        default:
-
-                            break;
-                    }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
