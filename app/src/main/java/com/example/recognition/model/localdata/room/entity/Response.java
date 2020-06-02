@@ -4,22 +4,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(primaryKeys = {"image_uri", "model"})
 public class Response {
-    @PrimaryKey(autoGenerate = true)
-    private long id;
     @ColumnInfo(name = "image_uri")
     private String imageUri;
     private String data;
     private String model;
     @ColumnInfo(name = "is_favorite")
     private boolean isFavorite;
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
     public String getImageUri() {
         return imageUri;
     }

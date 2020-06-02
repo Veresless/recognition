@@ -13,6 +13,8 @@ import com.example.recognition.types.Response;
 
 import java.util.List;
 
+import retrofit2.http.DELETE;
+
 @Dao
 @TypeConverters({ResponseConverter.class})
 public interface ResponseDao {
@@ -20,10 +22,14 @@ public interface ResponseDao {
     LiveData<List<Response>> getFavorites();
     @Query("SELECT * FROM response WHERE 0 = is_favorite")
     LiveData<Response> getLastResponse();
+    @Query("SELECT * FROM response WHERE image_uri = :image AND model = :model")
+    LiveData<Response> getFavorite(String image, String model);
     @Insert
     void addResponse(Response response);
     @Query("UPDATE response SET is_favorite = 1 WHERE 0 = is_favorite")
     void addLastToFavorite();
     @Query("DELETE FROM response WHERE 0 = is_favorite")
     void removeLastResponse();
+    @Delete
+    void removeFromFavorites(Response response);
 }
