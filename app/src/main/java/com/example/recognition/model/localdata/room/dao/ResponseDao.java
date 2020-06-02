@@ -15,18 +15,12 @@ import java.util.List;
 @Dao
 @TypeConverters({ResponseConverter.class})
 public interface ResponseDao {
-    @Query("SELECT * FROM response WHERE 1 = is_favorite")
+    @Query("SELECT * FROM GeneralResponse")
     LiveData<List<Response>> getFavorites();
-    @Query("SELECT data FROM response WHERE 0 = is_favorite")
-    LiveData<Response> getLastResponse();
-    @Query("SELECT * FROM response WHERE image_uri = :image AND model = :model")
-    LiveData<Response> getFavorite(String image, String model);
+    @Query("SELECT * FROM GeneralResponse WHERE image = :image")
+    LiveData<Response> getFavorite(String image);
     @Insert
     void addResponse(Response response);
-    @Query("UPDATE response SET is_favorite = 1 WHERE 0 = is_favorite")
-    void addLastToFavorite();
-    @Query("DELETE FROM response WHERE 0 = is_favorite")
-    void removeLastResponse();
     @Delete
-    void removeFromFavorites(Response response);
+    void removeResponse(Response response);
 }

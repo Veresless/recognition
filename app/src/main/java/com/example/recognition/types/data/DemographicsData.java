@@ -1,4 +1,4 @@
-package com.example.recognition.types;
+package com.example.recognition.types.data;
 
 public class DemographicsData extends GeneralData {
     public static class Frame {

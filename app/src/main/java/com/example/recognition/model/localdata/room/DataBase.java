@@ -6,8 +6,8 @@ import androidx.room.RoomDatabase;
 import com.example.recognition.model.localdata.room.dao.ModelsDao;
 import com.example.recognition.model.localdata.room.dao.ResponseDao;
 import com.example.recognition.model.localdata.room.entity.Model;
-import com.example.recognition.model.localdata.room.entity.Response;
-@Database(entities = {Model.class, Response.class}, version = 1)
+import com.example.recognition.model.localdata.room.entity.GeneralResponse;
+@Database(entities = {Model.class, GeneralResponse.class}, version = 1)
 public abstract class DataBase extends RoomDatabase {
     public abstract ModelsDao modelsDao();
     public abstract ResponseDao responseDao();

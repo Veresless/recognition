@@ -2,8 +2,7 @@ package com.example.recognition.model.remoutdata;
 
 import java.util.List;
 
-public class GeneralResponse extends BaseResponse
-{
+public class GeneralResponse {
     public static class Status {
         private int code;
         private String description;

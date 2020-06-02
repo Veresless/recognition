@@ -12,5 +12,5 @@ public interface ClarifyService {
             "content-type: application/json"
     })
     @POST("v2/workflows/{workflowId}/results")
-    <T extends BaseResponse> Call<T> sendRequest(@Path("apyKey") String apiKey, @Path("workflowId") String model, @Body Request request);
+    <T> Call<T> sendRequest(@Path("apyKey") String apiKey, @Path("workflowId") String model, @Body Request request);
 }

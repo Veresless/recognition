@@ -1,6 +1,8 @@
-package com.example.recognition.types;
+package com.example.recognition.types.data;
 
-public class GeneralData extends Response{
+import com.example.recognition.types.Response;
+
+public class GeneralData extends Response {
     public static class Field {
         private String name;
         private double value;
