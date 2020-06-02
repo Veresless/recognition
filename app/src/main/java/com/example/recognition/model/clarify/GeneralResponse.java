@@ -2,7 +2,7 @@ package com.example.recognition.model.clarify;
 
 import java.util.List;
 
-public class GeneralResponse
+public class GeneralResponse extends BaseResponse
 {
     public static class Status {
         private int code;

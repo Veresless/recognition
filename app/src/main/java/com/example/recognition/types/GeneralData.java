@@ -1,6 +1,6 @@
 package com.example.recognition.types;
 
-public class GeneralData implements BaseData {
+public class GeneralData extends BaseData {
     public static class Field {
         private String name;
         private double value;

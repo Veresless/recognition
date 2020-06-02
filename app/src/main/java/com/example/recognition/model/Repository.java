@@ -3,6 +3,7 @@ package com.example.recognition.model;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.recognition.model.clarify.BaseResponse;
 import com.example.recognition.model.clarify.GeneralResponse;
 import com.example.recognition.types.GeneralData;
 
@@ -28,9 +29,9 @@ public class Repository {
             @Override
             public void run() {
                 try {
-                            retrofit2.Response<GeneralResponse> response = remoteDataSource.fetchGeneralData(uri);
+                    remoteDataSource.fetchData(uri, model);
                 } catch (IOException e) {
-                    e.printStackTrace();
+
                 }
             }
         });

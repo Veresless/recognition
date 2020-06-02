@@ -21,9 +21,9 @@ public interface ResponseDao {
     @Query("SELECT * FROM response WHERE 0 = is_favorite")
     LiveData<Response> getLastResponse();
     @Insert
-    void addResponse(com.example.recognition.model.localdata.room.entity.Response response);
-    @Update
-    void updateResponse(com.example.recognition.model.localdata.room.entity.Response response);
-    @Delete
-    void removeResponse(com.example.recognition.model.localdata.room.entity.Response response);
+    void addResponse(Response response);
+    @Query("UPDATE response SET is_favorite = 1 WHERE 0 = is_favorite")
+    void addLastToFavorite();
+    @Query("DELETE FROM response WHERE 0 = is_favorite")
+    void removeLastResponse();
 }
