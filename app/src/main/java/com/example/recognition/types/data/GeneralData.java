@@ -1,27 +1,11 @@
 package com.example.recognition.types.data;
 
-import com.example.recognition.types.Response;
-
-public class GeneralData extends Response {
-    public static class Field {
-        private String name;
-        private double value;
-        public Field(String name, double value) {
-            this.name = name;
-            this.value = value;
-        }
-        public String getName() {
-            return name;
-        }
-        public double getValue() {
-            return value;
-        }
+public class GeneralData {
+    protected String[] properties;
+    public String[] getProperties() {
+        return properties;
     }
-    protected Field[] fields;
-    public Field[] getFields() {
-        return fields;
-    }
-    public void setFields(Field[] fields) {
-        this.fields = fields;
+    public void setProperties(String[] properties) {
+        this.properties = properties;
     }
 }

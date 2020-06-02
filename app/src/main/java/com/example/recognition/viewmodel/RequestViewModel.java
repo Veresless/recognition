@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
 import com.example.recognition.model.Repository;
-import com.example.recognition.types.Response;
+import com.example.recognition.types.GeneralResponse;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class RequestViewModel extends ViewModel {
     private MediatorLiveData<List<String>> modelList = new MediatorLiveData<>();
     private MutableLiveData<Integer> modelCode = new MutableLiveData<>();
     private MutableLiveData<String> imageUri = new MutableLiveData<>();
-    private MediatorLiveData<Response> response = new MediatorLiveData<>();
+    private MediatorLiveData<GeneralResponse> response = new MediatorLiveData<>();
 
     public RequestViewModel(Repository repository) {
         this.repository = repository;
@@ -27,11 +27,11 @@ public class RequestViewModel extends ViewModel {
             }
         });
     }
-    public LiveData<Response> makeRequest(String imageUri, String model) {
-        response.addSource(repository.getModelResponse(imageUri, model), new Observer<Response>() {
+    public LiveData<GeneralResponse> makeRequest(String imageUri, String model) {
+        response.addSource(repository.getModelResponse(imageUri, model), new Observer<GeneralResponse>() {
             @Override
-            public void onChanged(Response responseData) {
-                response.setValue(responseData);
+            public void onChanged(GeneralResponse generalResponseData) {
+                response.setValue(generalResponseData);
             }
         });
         return response;

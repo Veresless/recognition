@@ -7,8 +7,8 @@ import androidx.room.Room;
 
 import com.example.recognition.model.localdata.SharedPreferencesHelper;
 import com.example.recognition.model.localdata.room.DataBase;
+import com.example.recognition.types.GeneralResponse;
 import com.example.recognition.types.Options;
-import com.example.recognition.types.Response;
 
 import java.util.List;
 
@@ -27,16 +27,16 @@ public class LocalDataSource {
     public void setModels(List<String> models) {
         dataBase.modelsDao().addModels(models);
     }
-    public void addResponse(Response response) {
-        dataBase.responseDao().addResponse(response);
+    public void addResponse(GeneralResponse generalResponse) {
+        dataBase.responseDao().addResponse(generalResponse);
     }
-    public LiveData<Response> getLastResponse() {
+    public LiveData<GeneralResponse> getLastResponse() {
         return dataBase.responseDao().getLastResponse();
     }
-    public LiveData<Response> getFavorite(String image, String model) {
+    public LiveData<GeneralResponse> getFavorite(String image, String model) {
         return dataBase.responseDao().getFavorite(image, model);
     }
-    public LiveData<List<Response>> getFavorites() {
+    public LiveData<List<GeneralResponse>> getFavorites() {
         return dataBase.responseDao().getFavorites();
     }
     public void addLastToFavorite() {

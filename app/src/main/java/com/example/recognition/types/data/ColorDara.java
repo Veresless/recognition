@@ -1,6 +1,6 @@
 package com.example.recognition.types.data;
 
-import com.example.recognition.types.Response;
+import com.example.recognition.types.GeneralResponse;
 
-public class ColorDara extends Response {
+public class ColorDara extends GeneralResponse {
 }

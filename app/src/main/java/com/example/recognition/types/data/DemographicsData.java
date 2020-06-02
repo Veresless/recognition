@@ -1,6 +1,6 @@
 package com.example.recognition.types.data;
 
-public class DemographicsData extends GeneralData {
+public class DemographicsData {
     public static class Frame {
         private double top;
         private double left;

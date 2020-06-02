@@ -8,7 +8,7 @@ import androidx.room.Query;
 import androidx.room.TypeConverters;
 
 import com.example.recognition.model.localdata.room.ResponseConverter;
-import com.example.recognition.types.Response;
+import com.example.recognition.types.GeneralResponse;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ import java.util.List;
 @TypeConverters({ResponseConverter.class})
 public interface ResponseDao {
     @Query("SELECT * FROM GeneralResponse")
-    LiveData<List<Response>> getFavorites();
+    LiveData<List<GeneralResponse>> getFavorites();
     @Query("SELECT * FROM GeneralResponse WHERE image = :image")
-    LiveData<Response> getFavorite(String image);
+    LiveData<GeneralResponse> getFavorite(String image);
     @Insert
-    void addResponse(Response response);
+    void addResponse(GeneralResponse generalResponse);
     @Delete
-    void removeResponse(Response response);
+    void removeResponse(GeneralResponse generalResponse);
 }

@@ -1,10 +1,10 @@
 package com.example.recognition.model;
 
 import com.example.recognition.model.remoutdata.BaseResponse;
-import com.example.recognition.types.Response;
+import com.example.recognition.types.GeneralResponse;
 
 public class ResponseConverter {
-    public static <T extends BaseResponse> Response getResponse(retrofit2.Response<T> response, String model) {
+    public static <T extends BaseResponse> GeneralResponse getResponse(retrofit2.Response<T> response, String model) {
         switch (model) {
             case "General" :
 

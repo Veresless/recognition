@@ -5,8 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.recognition.model.remoutdata.ColorResponse;
 import com.example.recognition.model.remoutdata.DemographicsResponse;
-import com.example.recognition.model.remoutdata.GeneralResponse;
-import com.example.recognition.types.Response;
+import com.example.recognition.types.GeneralResponse;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +25,7 @@ public class Repository {
         localDataSource.setModels(remoteDataSource.getModels());
         return localDataSource.getModels();
     }
-    public LiveData<Response> getModelResponse(final String uri, final String model) {
+    public LiveData<GeneralResponse> getModelResponse(final String uri, final String model) {
         executorIO.execute(new Runnable() {
             @Override
             public void run() {
@@ -36,7 +35,7 @@ public class Repository {
                         case GENERAL:
                             localDataSource.addResponse(
                                 ResponseConverter.getResponse(
-                                        remoteDataSource.<GeneralResponse>fetchData(uri, model),
+                                        remoteDataSource.<com.example.recognition.model.remoutdata.GeneralResponse>fetchData(uri, model),
                                         model
                                 ));
                             break;
@@ -63,7 +62,7 @@ public class Repository {
         });
         return localDataSource.getLastResponse();
     }
-    public LiveData<List<Response>> getFavorites() {
+    public LiveData<List<GeneralResponse>> getFavorites() {
         return localDataSource.getFavorites();
     }
     public void makeLastResponseFavorite() {
