@@ -8,15 +8,15 @@ import androidx.room.Query;
 import androidx.room.TypeConverters;
 
 import com.example.recognition.model.localdata.room.ResponseConverter;
-import com.example.recognition.types.GeneralResponse;
+import com.example.recognition.types.ColorResponse;
 
 import java.util.List;
 
 @Dao
 @TypeConverters({ResponseConverter.class})
-public interface ResponseDao {
-    @Query("SELECT * FROM GeneralResponse")
-    LiveData<List<GeneralResponse>> getFavorites();
+public interface ColorResponseDao {
+    @Query("SELECT * FROM ColorResponse")
+    LiveData<List<ColorResponse>> getFavorites();
     @Query("SELECT * FROM GeneralResponse WHERE image = :image")
     LiveData<GeneralResponse> getFavorite(String image);
     @Insert

@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 
 public class SharedPreferencesHelper {
     private final static String OPTIONS_KEY = "OPTIONS_KEY";
+    public static final String LAST_RESPONSE_KEY = "LAST_RESPONSE_KEY";
     private MutableLiveData<Options> optionsData = new MutableLiveData<>();
     private SharedPreferences sharedPreferences;
     private Gson gson;

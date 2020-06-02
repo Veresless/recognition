@@ -7,10 +7,8 @@ import com.example.recognition.model.localdata.room.entity.Model;
 
 public class ModelConverter {
     @TypeConverter
-    public Model toModel(String str) {
-        Model model = new Model();
-        model.setModel(str);
-        return model;
+    public Model toModel(String model) {
+        return new Model(model);
     }
 
 }
