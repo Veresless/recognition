@@ -2,7 +2,6 @@ package com.example.recognition.model.localdata.room;
 
 import androidx.room.TypeConverter;
 
-import com.example.recognition.types.BaseData;
 import com.example.recognition.types.DemographicsData;
 import com.example.recognition.types.GeneralData;
 import com.example.recognition.types.Response;
@@ -14,7 +13,7 @@ public class ResponseConverter {
     public com.example.recognition.model.localdata.room.entity.Response toResponse(Response response) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        String data = gson.toJson(response.getData());
+        String data = response.getData();
         com.example.recognition.model.localdata.room.entity.Response entityResponse =  new com.example.recognition.model.localdata.room.entity.Response();
         entityResponse.setImageUri(response.getImage());
         entityResponse.setData(data);
@@ -27,23 +26,8 @@ public class ResponseConverter {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         Response generalResponse = new Response();
-        BaseData[] data;
-        switch (response.getModel()) {
-            case "General" :
-                data = gson.fromJson(response.getData(), GeneralData[].class);
-                break;
-            case "Demographics":
-                data = gson.fromJson(response.getData(), DemographicsData[].class);
-                break;
-//            case "Color":
-//                data = gson.fromJson(response.getData(), ColorData[].class);
-//                break;
-            default:
-                data = gson.fromJson(response.getData(), BaseData[].class);
-                break;
-        }
         generalResponse.setImage(response.getImageUri());
-        generalResponse.setData(data);
+        generalResponse.setData(response.getData());
         generalResponse.setModel(response.getModel());
         return generalResponse;
     }

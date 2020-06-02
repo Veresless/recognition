@@ -2,7 +2,7 @@ package com.example.recognition.types;
 
 public class Response {
     protected String imageUri;
-    protected BaseData[] data;
+    protected String data;
     protected String model;
     public String getImage() {
         return imageUri;
@@ -10,10 +10,10 @@ public class Response {
     public void setImage(String image) {
         imageUri = image;
     }
-    public BaseData[] getData() {
+    public String getData() {
         return data;
     }
-    public void setData(BaseData[] data) {
+    public void setData(String data) {
         this.data = data;
     }
     public String getModel() {

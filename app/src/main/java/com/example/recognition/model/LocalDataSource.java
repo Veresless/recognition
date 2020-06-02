@@ -42,7 +42,7 @@ public class LocalDataSource {
     public void addLastToFavorite() {
         dataBase.responseDao().addLastToFavorite();
     }
-    public void removeLastFromFavorites() {
+    public void removeLastFromLocalData() {
         dataBase.responseDao().removeLastResponse();
     }
     public LiveData<Options> getOptions() {

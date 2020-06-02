@@ -2,6 +2,10 @@ package com.example.recognition.model;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.recognition.model.remoutdata.ColorResponse;
+import com.example.recognition.model.remoutdata.DemographicsResponse;
+import com.example.recognition.model.remoutdata.GeneralResponse;
 import com.example.recognition.types.Response;
 
 import java.io.IOException;
@@ -26,19 +30,36 @@ public class Repository {
         executorIO.execute(new Runnable() {
             @Override
             public void run() {
-                localDataSource.removeLastFromFavorites();
+                localDataSource.removeLastFromLocalData();
                 try {
-                    localDataSource.addResponse(
-                            ResponseConverter.getResponse(
-                                    remoteDataSource
-                                        .fetchData(uri, model),
-                                    model
-                            )
-                    );
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+                    switch (RemoteDataSource.Model.valueOf(model.toUpperCase())){
+                        case GENERAL:
+                            localDataSource.addResponse(
+                                ResponseConverter.getResponse(
+                                        remoteDataSource.<GeneralResponse>fetchData(uri, model),
+                                        model
+                                ));
+                            break;
+                        case DEMOGRAPHICS:
+                            localDataSource.addResponse(
+                                    ResponseConverter.getResponse(
+                                            remoteDataSource.<DemographicsResponse>fetchData(uri, model),
+                                            model
+                                    ));
+                            break;
+                        case COLOR:
+                            localDataSource.addResponse(
+                                    ResponseConverter.getResponse(
+                                            remoteDataSource.<ColorResponse>fetchData(uri, model),
+                                            model
+                                    ));
+                            break;
+                        default: break;
                     }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
+            }
         });
         return localDataSource.getLastResponse();
     }

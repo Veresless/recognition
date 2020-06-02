@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.example.recognition.model.remoutdata.BaseResponse;
 import com.example.recognition.model.remoutdata.ClarifyService;
+import com.example.recognition.model.remoutdata.GeneralResponse;
 import com.example.recognition.model.remoutdata.Request;
 
 import java.io.IOException;
@@ -64,8 +65,8 @@ public class RemoteDataSource {
                         )
                 )
         );
-        Call<T> responseCall = service.sendRequest(apiKey, model, request);
-        return responseCall.execute();
+        Call<T> call = service.sendRequest(apiKey, model, request);
+        return call.execute();
     }
     public List<String> getModels() {
         List<String> listModels = new ArrayList<>();

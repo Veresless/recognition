@@ -4,18 +4,13 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.TypeConverters;
-import androidx.room.Update;
 
 import com.example.recognition.model.localdata.room.ResponseConverter;
-import com.example.recognition.types.BaseData;
 import com.example.recognition.types.Response;
 
 import java.util.List;
-
-import retrofit2.http.DELETE;
 
 @Dao
 @TypeConverters({ResponseConverter.class})
